@@ -1,5 +1,140 @@
+:root {
+	--font-family: 'Barlow Semi Condensed', sans-serif;
+	--font-size: 13px;
+	--medium-font: 500;
+	--semi-bold: 600;
+	--card-width: 19rem;
+	--primary-moderate-violet: hsl( 263, 55%, 52% );
+	--primary-very-dark-grayish-blue: hsl( 217, 19%, 35% );
+	--priamry-very-dark-blackish-blue: hsl( 219, 29%, 14% );
+	--primary-white: hsl( 0, 0%, 100% );
+	--neutral-light-gray: hsl( 0, 0%, 81% );
+	--neutral-light-grayish-blue: hsl( 210, 46%, 95% );
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+	font-family: var( --font-family );
+	font-size: var( --font-size );
+	background-color: var( --neutral-light-grayish-blue );
+	max-width: 1440px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.gallery {
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat( auto-fit, minmax( var( --card-width ), 1fr ) );
+	grid-gap: 2rem;
+	grid-auto-flow: dense;
+}
+
+.card {
+	padding: 2rem;
+	border-radius: 10px;
+	color: var( --primary-white );
+	box-shadow: 10px 14px 30px -20px rgba( 0, 0, 0, 0.78 );
+	transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+	box-shadow: none;
+}
+
+.card-reviewer-pic {
+	border: 2px solid var( --primary-white );
+	border-radius: 50%;
+	margin-right: 1rem;
+	float: left;
+	width: 56px;
+	height: 56px;
+	transform: translate( 0px, -5px );
+}
+
+.card-header span {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.card-header p {
+	opacity: 50%;
+}
+
+.card-intro {
+	margin: 1rem 0;
+	font-size: 1.5rem;
+}
+
+.card-review {
+	font-size: 1rem;
+	opacity: 75%;
+}
+
+.card__violet {
+	background-color: var( --primary-moderate-violet );
+	background-image: url( "../images/bg-pattern-quotation.svg" );
+	background-repeat: no-repeat;
+	background-position: 85% 0;
+	background-size: 8rem;
+}
+
+.card__gray {
+	background-color: var( --primary-very-dark-grayish-blue );
+}
+
+.card__black {
+	background-color: var( --priamry-very-dark-blackish-blue );
+}
+
+.card__white {
+	background-color: var( --primary-white );
+	color: var( --primary-very-dark-grayish-blue );
+}
+
+.card__wide {
+	grid-column: auto / span 2;
+}
+
+.card__long {
+	grid-row: auto / span 2;
+}
+
+
+@media only screen and ( max-width: 767px ) {
+	.gallery {
+		padding: 1rem;
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media only screen and ( max-width: 650px ) {
+	.gallery {
+		grid-template-columns: 1fr;
+	}
+
+	.card__wide {
+		grid-column: auto;
+	}
+
+	.card__long {
+		grid-row: auto;
+	}
+}
+
+@media screen and ( max-width: 1375px ) {
+    .card__white__j {
+        grid-column: auto / span 2;
+    }
+}
+
+@media screen and ( max-width: 1040px ) {
+    .card__white__j {
+        grid-column: auto;
+    }
 }
