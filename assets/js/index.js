@@ -1,4 +1,5 @@
 import { addNewCard } from './addNewCard.js';
+import { removeCard } from './removeCard.js'
 
 const addButton = document.querySelector( "#add-button" );
 const removeButton = document.querySelector( "#remove-button" );
@@ -12,4 +13,9 @@ addButton.addEventListener( "click", () => {
     }
 }, false );
 
-removeButton.addEventListener( "click", () => console.log( "Remove button clicked" ), false );
+removeButton.addEventListener( "click", () => {
+    if ( i > 0 ) {
+        removeCard( gallery );
+        i--;
+    }
+}, false );
